@@ -20,19 +20,19 @@ func fermat(fermatted uint64) (isComp bool) {
 	fermatLittle := fermatted - 1
 	if fermatted > 1 {
 		littleHelper := math.Pow(2, float64(fermatLittle))
-		fmt.Pruint64f("littleHelper is %v\n", littleHelper)
+		fmt.Printf("littleHelper is %v\n", littleHelper)
 		little := uint64(littleHelper) % fermatted
-		fmt.Pruint64f("Little is %v\n", little)
+		fmt.Printf("Little is %v\n", little)
 		if little != 1 {
 			isComp = true
-			fmt.Pruint64("Fermat Test Failed\n")
+			fmt.Print("Fermat Test Failed\n")
 			return
 		} //if little != 1
 		isComp = false
-		fmt.Pruint64("Fermat Test Passed\n")
+		fmt.Print("Fermat Test Passed\n")
 		return
 	} //if fermatted > 1
-	fmt.Pruint64("Integer 1 or less, Fermat test not run\n")
+	fmt.Print("Integer 1 or less, Fermat test not run\n")
 	return
 } //func fermat
 
@@ -47,19 +47,19 @@ func determine(determined uint64) (isPrime bool) {
 		if uint64(math.Pow(float64(baseArray[i]), float64(d))) != determined-1 {
 			if uint64(math.Pow(float64(baseArray[i]), float64(d2))) == determined-1 {
 				primeArray[i] = true
-				fmt.Pruint64f("Miller test step %v passed\n", i)
+				fmt.Printf("Miller test step %v passed\n", i)
 			}
 		}
 	}
 	for i := 0; i < 5; i++ {
 		if !primeArray[i] {
 			isPrime = false
-			fmt.Pruint64("Miller test failed\n")
+			fmt.Print("Miller test failed\n")
 			return
 		}
 	}
 	isPrime = true
-	fmt.Pruint64("Miller test passed\n")
+	fmt.Print("Miller test passed\n")
 	return
 	//	This area is a construction site ###
 } //func determine

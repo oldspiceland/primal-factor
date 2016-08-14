@@ -30,22 +30,25 @@ func fermat(fermatted int) (isComp bool) {
 
 func determine(determined int) (isPrime bool) {
 	//TODO: This area is a construction site ###
+	baseArray := [5]int{2, 3, 5, 7, 11}
+	primeArray := [5]bool{false, false, false, false, false}
 	d := ((determined - 1) / 4) //This matches to an s of 2
-	if int(math.Pow(float64(2, d))%determined != (1 || determined-1)) &&
-		(int(math.Pow(float64(2), float64(d*2)))%determined == (determined - 1)) &&
-		(int(math.Pow(float64(3), float64(d)))%determined != (1 || determined-1)) &&
-		(int(math.Pow(float64(3), float64(d*2)))%determined == (determined - 1)) &&
-		(int(math.Pow(float64(5), float64(d)))%determined != (1 || determined-1)) &&
-		(int(math.Pow(float64(5), float64(d*2)))%determined == (determined - 1)) &&
-		(int(math.Pow(float64(7), float64(d)))%determined != (1 || determined-1)) &&
-		(int(math.Pow(float64(7), float64(d*2)))%determined == (determined - 1)) &&
-		(int(math.Pow(float64(11), float64(d)))%determined != (1 || determined-1)) &&
-		(int(math.Pow(float64(11), float64(d*2)))%determined == (determined - 1)) {
+	d2 := d * 2
 
-		isPrime = true
-		return
+	for i := 0; i < 5; i++ {
+		if int(math.Pow(float64(baseArray[i]), float64(d))) != (1 || determined-1) {
+			if int(math.Pow(float64(baseArray[i]), float64(d2))) == determined-1 {
+				primeArray[i] = true
+			}
+		}
 	}
-	isPrime = false
+	for i := 0; i < 5; i++ {
+		if !primeArray[i] {
+			isPrime = false
+			return
+		}
+	}
+	isPrime = true
 	return
 	//	This area is a construction site ###
 } //func determine

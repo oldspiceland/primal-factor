@@ -36,7 +36,7 @@ func determine(determined int) (isPrime bool) {
 	d2 := d * 2
 
 	for i := 0; i < 5; i++ {
-		if int(math.Pow(float64(baseArray[i]), float64(d))) != (1 || determined-1) {
+		if int(math.Pow(float64(baseArray[i]), float64(d))) != 1 || determined-1 {
 			if int(math.Pow(float64(baseArray[i]), float64(d2))) == determined-1 {
 				primeArray[i] = true
 			}

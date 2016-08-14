@@ -19,6 +19,7 @@ func IsPrime(primed int) (isPrime bool) {
 func fermat(fermatted int) (isComp bool) {
 	if fermatted > 1 {
 		little := (int(math.Pow(float64(2), (float64(fermatted-1)))) % fermatted)
+		fmt.Printf("Little is %v\n", little)
 		if little != 1 {
 			isComp = true
 			fmt.Print("Fermat Test Failed\n")

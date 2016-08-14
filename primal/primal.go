@@ -19,9 +19,10 @@ func IsPrime(primed uint64) (isPrime bool) {
 func fermat(fermatted uint64) (isComp bool) {
 	fermatLittle := fermatted - 1
 	if fermatted > 1 {
-		littleHelper := math.Pow(2, float64(fermatLittle))
+		littleHelperFloat := math.Pow(2, float64(fermatLittle))
+		littleHelper := uint64(littleHelperFloat)
 		fmt.Printf("littleHelper is %v\n", littleHelper)
-		little := uint64(littleHelper) % fermatted
+		little := littleHelper % fermatted
 		fmt.Printf("Little is %v\n", little)
 		if little != 1 {
 			isComp = true

@@ -6,7 +6,7 @@ import (
 )
 
 //IsPrime takes an uint64, primed, and returns a bool, isPrime
-func IsPrime(primed uuint6464) (isPrime bool) {
+func IsPrime(primed uint64) (isPrime bool) {
 	isComp := fermat(primed) //first use fermat to check for compositeness
 	if isComp == true {
 		isPrime = false
